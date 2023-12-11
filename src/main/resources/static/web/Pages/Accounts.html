@@ -12,7 +12,7 @@
 <body>
     <div id="app">
         <header class="bg-cyan-600 items-center flex justify-around">
-            <img class="h-14 w-14 rounded-lg" src="../image/icono banco.jpg" alt="">
+            <img class="h-12 w-12 rounded-lg" src="../image/icono banco.jpg" alt="">
 
             <nav class="flex gap-5 ">
                 <a class="p-2  text-cyan-600 bg-white rounded-lg" href="Accounts.html">Accounts</a>
@@ -24,21 +24,22 @@
             <button class="p-2  text-cyan-600 bg-white rounded-lg">Logout</button>
         </header>
 
-        <h2 class="text-5xl text-cyan-600 text-center">Welcome {{data.firstName}}!</h2>
+        <h2 class="text-5xl text-cyan-600 text-center m-5">Welcome {{data.firstName}}!</h2>
 
+        <div class="flex justify-center gap-10">
+            <template v-if="accounts.length > 0" v-for="account in accounts">
 
-        <template v-if="accounts.length > 0" v-for="account in accounts">
+                <div class=" gap-10 m-9 text-center text-white ">
+                    <section class="bg-cyan-600  h-44 w-80 rounded-lg m-10 p-9 ">
+                        <h2 class="text-center text-lg items-center">Número de cuenta: {{account.number}}</h2>
+                        <h2 class="text-center text-lg items-center">Monto:
+                            {{account.balance.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) }} </h2>
+                        <h2 class="text-center text-lg items-center">Fecha de creación: {{account.creationDate}}</h2>
+                    </section>
+                </div>
 
-            <div class=" flex  gap-10 m-9 text-center place-content-center text-white ">
-                <section class="bg-cyan-600  h-44 w-80 rounded-lg m-10 p-9 ">
-                    <h2 class="text-center text-lg items-center">Número de cuenta: {{account.number}}</h2>
-                    <h2 class="text-center text-lg items-center">Monto:
-                        {{account.balance.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) }} </h2>
-                    <h2 class="text-center text-lg items-center">Fecha de creación: {{account.creationDate}}</h2>
-                </section>
-
-            </div>
-        </template>
+            </template>
+        </div>
         <img class="w-full max-h-96 object-cover object-center" src="../image/banner.avif" alt="banner">
 
         <footer class=" flex justify-around text-cyan-600 p-7 h-16">
