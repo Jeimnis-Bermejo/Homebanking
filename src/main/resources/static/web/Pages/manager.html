@@ -11,38 +11,40 @@
 <body>
     <div id="app">
         <header>
-
+            <h1 class="text-5xl font-bold">Bank Bermejo</h1>
         </header>
         <main>
             <div class="flex flex-col gap-6">
                 <div class="flex flex-col gap-2 items-center border-black w-80">
-                    <h1 class="font-bold text-xl">Client Manager</h1>
-                    <form @submit="createPerson" class="bg-slate-500 rounded-lg w-64 h-80 p-8 flex flex-col gap-3 items-center">
+
+                    <h2 class="text-2xl font-bold">Client Manager</h2>
+                    <form @submit="createPerson"
+                        class="bg-slate-500 rounded-lg w-64 h-80 p-8 flex flex-col gap-3 items-center">
                         <label for="name">Name:</label>
-                            <input class="rounded-lg" type="text" id="name" name="name" v-model="name" required>
-                        
+                        <input class="rounded-lg" type="text" id="name" name="name" v-model="name" required>
+
 
                         <label for="lastname">Last Name: </label>
-                            <input class="rounded-lg" type="text" id="lastname" name="lastname" v-model="lastname" required>
-                       
+                        <input class="rounded-lg" type="text" id="lastname" name="lastname" v-model="lastname" required>
+
 
 
                         <label for="email">Email: </label>
-                            <input class="rounded-lg" type="email" id="email" name="email" v-model="email" required>
-                       
+                        <input class="rounded-lg" type="email" id="email" name="email" v-model="email" required>
 
-                        <input class="bg-blue-500 p-2 rounded-lg" type="submit" value="Enviar">
+
+                        <input class="bg-green-800 text-white p-2 rounded-lg" type="submit" value="Add Clients">
                     </form>
                 </div>
-
+                <h2 class="text-2xl font-bold">List Clients</h2>
                 <table class="border max-w-2xl text-center  p-10  items-center  ">
-                    
+
                     <tr>
                         <th class=" bg-slate-500 border">First Name</th>
                         <th class=" bg-slate-500 border">Last Name</th>
                         <th class="  bg-slate-500 border">Email</th>
                     </tr>
-                </thead>
+                    </thead>
                     <template v-if="data.length > 0" v-for="client in data">
                         <tr>
                             <td class="border">{{client.firstName}}</td>
@@ -62,9 +64,9 @@
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>>
-    <script type="module" src="./tailwind.config.js"></script>
+    <script type="module" src="../js/tailwind.config.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./manager.js"></script>
+    <script src="../js/manager.js"></script>
 
 </body>
 

@@ -4,9 +4,7 @@ let app=createApp({
     data(){
         return{
             data:[],
-            name:"",
-            lastname:"",
-            email:"",
+            accounts:[],
 
     }
 },
@@ -16,14 +14,19 @@ created(){
 },
 methods:{
     loadData(){
-        axios.get("/clients")
+        axios.get("/api/clients/1")
         .then (response=>{
-            this.data=response.data._embedded.clients
+            this.data=response.data
             console.log(this.data)
+            this.accounts=response.data.accounts
+            console.log(this.accounts)
+            
         } )
            
         .catch(error=>console.log(error))
     },
+
+
 
 
   createPerson(){
