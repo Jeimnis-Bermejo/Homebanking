@@ -2,6 +2,7 @@ package com.mindhub.homebanking;
 
 import com.mindhub.homebanking.models.Account;
 import com.mindhub.homebanking.models.Client;
+import com.mindhub.homebanking.models.Transaction;
 import com.mindhub.homebanking.repositories.AccountRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -46,6 +47,9 @@ public CommandLineRunner initData(ClientRepository clientRepository, AccountRepo
            accounRepository.save(accountMelba2);
 		   accounRepository.save(accountCarlos1);
 			accounRepository.save(accountCarlos2);
+
+
+
 		};
 }
 }

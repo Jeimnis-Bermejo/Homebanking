@@ -3,6 +3,9 @@ package com.mindhub.homebanking.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class Account {
 @Id
@@ -13,8 +16,14 @@ public class Account {
     private Double balance;
 
     private LocalDate creationDate;
+
+    @OneToMany
+            (mappedBy ="account", fetch = FetchType.EAGER)
+    private Set<Transaction> transactions=new HashSet<>();
+
 @ManyToOne
     private Client client;
+
 
     public Account() {
     }

@@ -3,6 +3,8 @@ package com.mindhub.homebanking.dto;
 import com.mindhub.homebanking.models.Account;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Accountdto {
 
@@ -13,6 +15,7 @@ public class Accountdto {
 
     private LocalDate creationDate;
 
+    private List<Transactiondto> Transaction;
     public Accountdto(Account account){
 
         id= account.getId();
