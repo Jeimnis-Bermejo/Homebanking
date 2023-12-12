@@ -26,15 +26,16 @@
 
         <h2 class="text-5xl text-cyan-600 text-center m-5">Welcome {{data.firstName}}!</h2>
 
-        <div class="flex justify-center gap-10">
+        <div class="flex justify-center gap-10 ">
             <template v-if="accounts.length > 0" v-for="account in accounts">
 
-                <div class=" gap-10 m-9 text-center text-white ">
-                    <section class="bg-cyan-600  h-44 w-80 rounded-lg m-10 p-9 ">
+                <div class=" gap-10 m-9 text-center text-white  ">
+                    <section class="bg-cyan-600  h-48 w-80 rounded-lg m-9 p-9 ">
                         <h2 class="text-center text-lg items-center">Número de cuenta: {{account.number}}</h2>
                         <h2 class="text-center text-lg items-center">Monto:
-                            {{account.balance.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) }} </h2>
-                        <h2 class="text-center text-lg items-center">Fecha de creación: {{account.creationDate}}</h2>
+                            {{montoformateado(account.balance) }} </h2>
+                        <h2 class="text-center text-lg items-center mb-4">Fecha de creación: {{account.creationDate}}</h2>
+                        <a class="bg-white text-cyan-600 p-1 rounded-lg" v-bind:href= "'../pages/account.html?id=' + account.id" >Details Transaction</a>
                     </section>
                 </div>
 

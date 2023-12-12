@@ -51,15 +51,23 @@ public CommandLineRunner initData(ClientRepository clientRepository, AccountRepo
 		   accounRepository.save(accountCarlos1);
 			accounRepository.save(accountCarlos2);
 
-			Transaction transaction1=new Transaction(TransactionType.DEBITO,3500.0,"Tes debito" ,LocalDate.now());
-			Transaction transaction2=new Transaction(TransactionType.CREDIT,1500.0,"Tes credito" ,LocalDate.now());
+			Transaction transaction1=new Transaction(TransactionType.DEBITO,-3500.0,"Market" ,LocalDate.now());
+			Transaction transaction2=new Transaction(TransactionType.CREDIT,1500.0,"Tes Credito" ,LocalDate.now());
+			Transaction transaction3=new Transaction(TransactionType.DEBITO,-4500.0,"Tes Debito" ,LocalDate.now());
+			Transaction transaction4=new Transaction(TransactionType.CREDIT,2500.0,"Tes Credito" ,LocalDate.now());
+
 			accountMelba1.addTransactions(transaction1);
-			accountMelba2.addTransactions(transaction2);
+			accountMelba1.addTransactions(transaction2);
+			accountMelba2.addTransactions(transaction3);
+			accountMelba2.addTransactions(transaction4);
+
 
 
 
 			transactionRepository.save(transaction1);
 			transactionRepository.save(transaction2);
+			transactionRepository.save(transaction3);
+			transactionRepository.save(transaction4);
 			System.out.println(transaction1);
 			System.out.println(transaction2);
 
