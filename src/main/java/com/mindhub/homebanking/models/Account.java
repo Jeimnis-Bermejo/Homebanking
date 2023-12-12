@@ -19,7 +19,8 @@ public class Account {
 
     @OneToMany
             (mappedBy ="account", fetch = FetchType.EAGER)
-    private Set<Transaction> transactions=new HashSet<>();
+
+    private Set<Transaction> Transactions=new HashSet<>();
 
 @ManyToOne
     private Client client;
@@ -71,4 +72,15 @@ public class Account {
     public void setClient(Client client) {
         this.client = client;
     }
+
+    public Set<Transaction> getTransactions() {
+        return Transactions;
+    }
+
+    public void addTransactions(Transaction transaction){
+        transaction.setAccount(this);
+        this.Transactions.add(transaction);
+    }
 }
+
+

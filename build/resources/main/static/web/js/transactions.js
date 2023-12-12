@@ -5,6 +5,7 @@ let app=createApp({
         return{
             data:[],
             accounts:[],
+            transactions:[],
 
     }
 },
@@ -14,12 +15,12 @@ created(){
 },
 methods:{
     loadData(){
-        axios.get("api/accounts/1")
+        axios.get("/api/accounts/1")
         .then (response=>{
             this.data=response.data
             console.log(this.data)
-            this.accounts=response.data.accounts
-            console.log(this.accounts)
+            this.transactions=response.data.transactions
+            console.log(this.transactions)
             
         } )
            
@@ -27,9 +28,6 @@ methods:{
     },
 
 
-
-
 }
 
 }).mount("#app")
-

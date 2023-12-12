@@ -13,15 +13,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("api/accounts")
+@RequestMapping("/api/accounts")
 public class AccountController {
     @Autowired
     private AccountRepository accountRepository;
-    @RequestMapping("/all")
+    @RequestMapping()
     public List<Accountdto> getAllAccount() {
         return accountRepository.findAll().stream().map(account-> new Accountdto(account)).collect(Collectors.toList());
     }
-    @RequestMapping("/{id}")
+    @RequestMapping("{id}")
     public  Accountdto getOneAccount(@PathVariable Long id){
         return  new Accountdto(accountRepository.findById(id).orElse(null));
 

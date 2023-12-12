@@ -12,7 +12,7 @@ public class Clientdto {
     private String lastName;
     private String email;
 
-    private List<Accountdto>Accounts;
+    private List<Accountdto>accounts;
 
 
 
@@ -21,7 +21,7 @@ public class Clientdto {
  firstName= client.getFirstName();
  lastName= client.getLastName();
  email= client.getEmail();
- Accounts=client.getAccount().stream().map(account -> new Accountdto(account)).collect(Collectors.toList());
+ accounts=client.getAccount().stream().map(account -> new Accountdto(account)).collect(Collectors.toList());
 
     }
 
@@ -45,6 +45,6 @@ public class Clientdto {
 
 
     public List<Accountdto> getAccounts() {
-        return Accounts;
+        return accounts;
     }
 }

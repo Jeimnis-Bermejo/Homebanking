@@ -9,8 +9,8 @@ import jakarta.persistence.Id;
 import java.time.LocalDate;
 
 public class Transactiondto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
     private Long id;
 
     private TransactionType type;

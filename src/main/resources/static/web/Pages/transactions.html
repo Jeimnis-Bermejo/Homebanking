@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accounts</title>
-    <link rel="stylesheet" href="../style/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <title>Transactions</title>
 </head>
 
 <body>
@@ -27,18 +26,36 @@
         <h2 class="text-5xl text-cyan-600 text-center m-5">Welcome {{data.firstName}}!</h2>
 
         <div class="flex justify-center gap-10">
-            <template v-if="accounts.length > 0" v-for="account in accounts">
 
-                <div class=" gap-10 m-9 text-center text-white ">
-                    <section class="bg-cyan-600  h-44 w-80 rounded-lg m-10 p-9 ">
-                        <h2 class="text-center text-lg items-center">Número de cuenta: {{account.number}}</h2>
-                        <h2 class="text-center text-lg items-center">Monto:
-                            {{account.balance.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) }} </h2>
-                        <h2 class="text-center text-lg items-center">Fecha de creación: {{account.creationDate}}</h2>
-                    </section>
-                </div>
 
-            </template>
+            <div class=" gap-10 m-9 text-center text-white ">
+                <section class="bg-cyan-600  h-44 w-80 rounded-lg m-10 p-9 ">
+                    <h2 class="text-center text-lg items-center">Número de cuenta: {{account.number}}</h2>
+                    <h2 class="text-center text-lg items-center">Monto:
+                        {{account.balance.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) }} </h2>
+                    <h2 class="text-center text-lg items-center">Fecha de creación: {{account.creationDate}}</h2>
+                </section>
+            </div>
+
+            <h2 class="text-2xl font-bold">Transaccion Resumen </h2>
+            <table class="border max-w-2xl text-center  p-10  items-center  ">
+
+                <tr>
+                    <th class="bg-cyan-600 border">TYPE</th>
+                    <th class=" bg-cyan-600 border">AMOUT</th>
+                    <th class="  bg-cyan-600 border">DATE</th>
+                    <th class="  bg-cyan-600 border">DESCRIPTION</th>
+                </tr>
+                </thead>
+                <template v-if="transactions.length > 0" v-for="Transaction in transactions">
+                    <tr>
+                        <td class="border">{{transactions.type}}</td>
+                        <td class="border">{{transactions.amount}}</td>
+                        <td class="border">{{transaction.date}}</td>
+                        <td class="border">{{transaction.descripcion}}</td>
+
+                    </tr>
+                </template>
         </div>
         <img class="w-full max-h-96 object-cover object-center" src="../image/banner.avif" alt="banner">
 
@@ -51,11 +68,12 @@
                 <img class="h-10 w-10" src="../image/whatsapp.jpg" alt="whatsapp">
             </div>
         </footer>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+   </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>>
     <script type="module" src="../js/tailwind.config.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="../js/accounts.js"></script>
+    <script src="../js/transactions.js"></script>
 
 </body>
 

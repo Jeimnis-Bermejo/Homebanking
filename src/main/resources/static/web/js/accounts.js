@@ -14,7 +14,7 @@ created(){
 },
 methods:{
     loadData(){
-        axios.get("/api/clients/1")
+        axios.get("api/accounts/1")
         .then (response=>{
             this.data=response.data
             console.log(this.data)
@@ -28,18 +28,6 @@ methods:{
 
 
 
-
-  createPerson(){
-  axios.post("/clients",{ "firstName": this.name,
-  "lastName": this.lastname,
-  "email": this.email,})
-  .then (response=>{
-    this.data=response
-    this.loadData()
-  })
-
-    .catch(error=>console.log(error))
-    }
 
 }
 

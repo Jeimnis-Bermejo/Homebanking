@@ -18,10 +18,12 @@ public class Accountdto {
     private List<Transactiondto> Transaction;
     public Accountdto(Account account){
 
-        id= account.getId();
-        number= account.getNumber();
-        balance= account.getBalance();
-        creationDate=account.getCreationDate();
+     //   id= account.getId();
+      //  number= account.getNumber();
+      //  balance= account.getBalance();
+      //  creationDate=account.getCreationDate();
+
+        //Transaction=account.getTransactions().stream().map(transaction -> new Transactiondto(transaction)).collect(Collectors.toList());
     }
 
     public Long getId() {
@@ -38,5 +40,9 @@ public class Accountdto {
 
     public LocalDate getCreationDate() {
         return creationDate;
+    }
+
+    public List<Transactiondto> getTransaction() {
+        return getTransaction();
     }
 }
