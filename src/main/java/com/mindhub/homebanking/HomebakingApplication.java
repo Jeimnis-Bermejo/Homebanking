@@ -1,18 +1,14 @@
 package com.mindhub.homebanking;
 
-import com.mindhub.homebanking.models.Account;
-import com.mindhub.homebanking.models.Client;
-import com.mindhub.homebanking.models.Transaction;
-import com.mindhub.homebanking.models.TransactionType;
-import com.mindhub.homebanking.repositories.AccountRepository;
-import com.mindhub.homebanking.repositories.TransactionRepository;
+import com.mindhub.homebanking.models.*;
+import com.mindhub.homebanking.repositories.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import com.mindhub.homebanking.repositories.ClientRepository;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @SpringBootApplication
 public class HomebakingApplication {
@@ -21,7 +17,11 @@ public class HomebakingApplication {
 		SpringApplication.run(HomebakingApplication.class, args);
 	}
 	@Bean
-public CommandLineRunner initData(ClientRepository clientRepository, AccountRepository accounRepository ,TransactionRepository transactionRepository){
+public CommandLineRunner initData(ClientRepository clientRepository,
+								  AccountRepository accounRepository ,
+								  TransactionRepository transactionRepository,
+								  LoanRepository loanRepository,
+								  ClientLoanRepository clientLoanRepository){
 
 		return args -> {
 			Client client1 = new Client("Melba","Morel", "melba@mindhub.com" );
@@ -43,8 +43,7 @@ public CommandLineRunner initData(ClientRepository clientRepository, AccountRepo
 			client1.addAcount(accountMelba2);
 			client2.addAcount(accountCarlos1);
 			client2.addAcount(accountCarlos2);
-			System.out.println(accountMelba1);
-			System.out.println(accountMelba2);
+
 
            accounRepository.save(accountMelba1);
            accounRepository.save(accountMelba2);
@@ -61,18 +60,43 @@ public CommandLineRunner initData(ClientRepository clientRepository, AccountRepo
 			accountMelba2.addTransactions(transaction3);
 			accountMelba2.addTransactions(transaction4);
 
-
-
-
 			transactionRepository.save(transaction1);
 			transactionRepository.save(transaction2);
 			transactionRepository.save(transaction3);
 			transactionRepository.save(transaction4);
-			System.out.println(transaction1);
-			System.out.println(transaction2);
+
+			Loan loan1=new Loan("Mortgage",500000.0, List.of(12,24,36,48,60));
+			Loan loan2=new Loan("Staff",100000.0, List.of(6,12,24));
+			Loan loan3=new Loan("Automotive ",300000.0, List.of(12,24,36));
+
+			loanRepository.save(loan1);
+			loanRepository.save(loan2);
+			loanRepository.save(loan3);
+
+			ClientLoan client1loan =new ClientLoan(400000.0, 60);
+			ClientLoan client2loan= new ClientLoan(50000.0 ,12 );
+			ClientLoan client3loan =new ClientLoan(100000.0, 24);
+			ClientLoan client4loan= new ClientLoan(200000.0 ,36 );
+
+
+			client1.addClientLoan(client1loan);
+			loan1.addClientLoan(client1loan);
+			client1.addClientLoan(client2loan);
+			loan2.addClientLoan(client2loan);
+
+			client2.addClientLoan(client3loan);
+			loan2.addClientLoan(client3loan);
+			client2.addClientLoan(client4loan);
+			loan3.addClientLoan(client4loan);
 
 
 
- 		};
+            clientLoanRepository.save(client1loan);
+            clientLoanRepository.save(client2loan);
+            clientLoanRepository.save(client3loan);
+			clientLoanRepository.save(client4loan);
+
+
+		};
 }
 }

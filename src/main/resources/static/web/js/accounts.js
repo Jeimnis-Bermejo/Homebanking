@@ -5,7 +5,7 @@ let app=createApp({
         return{
             data:[],
             accounts:[],
-
+            loans:[],  
     }
 },
 
@@ -17,10 +17,9 @@ methods:{
         axios.get("/api/clients/1")
         .then (response=>{
             this.data=response.data
+             this.accounts=response.data.accounts.sort((a,b)=>a-b)
+             this.loans=response.data.loans
             console.log(this.data)
-            this.accounts=response.data.accounts.sort((a,b)=>a-b)
-
-            console.log(this.accounts)
             
         } )
            

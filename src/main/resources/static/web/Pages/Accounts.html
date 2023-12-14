@@ -23,29 +23,53 @@
 
             <button class="p-2  text-cyan-600 bg-white rounded-lg">Logout</button>
         </header>
+        <main class=" flex flex-col items-center">
 
-        <h2 class="text-5xl text-cyan-600 text-center m-5">Welcome {{data.firstName}}!</h2>
+            <h2 class="text-5xl text-cyan-600 text-center m-5">Welcome {{data.firstName}}!</h2>
 
-        <div class="flex justify-center gap-10 ">
-            <template v-if="accounts.length > 0" v-for="account in accounts">
+            <h3 class="text-5xl mb-4 font-bold text-center mt-8 text-cyan-600">Accounts </h3>
+            <div class="flex ">
+                <template v-if="accounts.length > 0" v-for="account in accounts">
 
-                <div class=" gap-10 m-9 text-center text-white  ">
-                    <section class="bg-cyan-600  h-48 w-80 rounded-lg m-9 p-9 ">
-                        <h2 class="text-center text-lg items-center">Número de cuenta: {{account.number}}</h2>
-                        <h2 class="text-center text-lg items-center">Monto:
-                            {{montoformateado(account.balance) }} </h2>
-                        <h2 class="text-center text-lg items-center mb-4">Fecha de creación: {{account.creationDate}}</h2>
-                        <a class="bg-white text-cyan-600 p-1 rounded-lg" v-bind:href= "'../pages/account.html?id=' + account.id" >Details Transaction</a>
-                    </section>
+                    <div class=" gap-10 m-9 text-center text-white  ">
+                        <section class="bg-cyan-600  h-48 w-80 rounded-lg m-9 p-9 ">
+                            <h2 class="text-center text-lg items-center">Account number: {{account.number}}</h2>
+                            <h2 class="text-center text-lg items-center">Amount:
+                                {{montoformateado(account.balance) }} </h2>
+                            <h2 class="text-center text-lg items-center mb-4">Creation date
+                                :
+                                {{account.creationDate}}
+                            </h2>
+                            <a class="bg-white text-cyan-600 p-1 rounded-lg"
+                                v-bind:href="'../pages/account.html?id=' + account.id">Details Transaction</a>
+                        </section>
+                    </div>
+                </template>
+            </div>
+            <div>
+                <h3 class="text-5xl mb-4 font-bold text-center text-cyan-600">Loans </h3>
+
+                <div v-if="loans.length > 0 " class="flex items-center  gap-10 m-9  text-white  ">
+                    <template v-for="loan in loans">
+
+                        <section class="bg-cyan-600  h-48 w-80 rounded-lg m-9 p-9 ">
+                            <h2 class="text-center text-lg items-center mb-3">Name: {{loan.name}}</h2>
+                            <h2 class="text-center text-lg items-center mb-3">Amount:
+                                {{montoformateado(loan.amount) }} </h2>
+                            <h2 class="text-center text-lg items-center mb-3">Payments: {{loan.payments}}
+                            </h2>
+
+                        </section>
+                    </template>
                 </div>
+                <h3 v-else > You have no active credit, we invite you to apply for credit!! 
+                </h3>
 
-            </template>
-        </div>
-        <img class="w-full max-h-96 object-cover object-center" src="../image/banner.avif" alt="banner">
-
+                <img class="w-full max-h-96 object-cover object-center" src="../image/banner.avif" alt="banner">
+        </main>
         <footer class=" flex justify-around text-cyan-600 p-7 h-16">
 
-            <h3 class="text-lg justify-center">2023- Todos los derechos reservados </h3>
+            <h3 class="text-lg justify-center">2023- All rights reserved</h3>
             <div class="flex gap-4 items-center  ">
                 <img class="h-10 w-10" src="../image/logo-de-facebook.png" alt="facebook">
                 <img class="h-10 w-10" src="../image/instagram.png" alt="instagram">
