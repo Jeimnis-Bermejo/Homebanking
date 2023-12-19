@@ -1,6 +1,7 @@
 package com.mindhub.homebanking.dto;
 
 import com.mindhub.homebanking.models.Account;
+import com.mindhub.homebanking.models.Card;
 import com.mindhub.homebanking.models.Client;
 import com.mindhub.homebanking.models.ClientLoan;
 
@@ -15,21 +16,21 @@ public class Clientdto {
     private String lastName;
     private String email;
 
-    private List<Accountdto>accounts;
+    private List<Accountdto> accounts;
 
-    private List<ClienLoandto>loans;
+    private List<ClienLoandto> loans;
 
+private List<Carddto>cards;
 
-    public Clientdto(Client client){
- id= client.getId();
- firstName= client.getFirstName();
- lastName= client.getLastName();
- email= client.getEmail();
- accounts=client.getAccount().stream().map(account -> new Accountdto(account)).collect(Collectors.toList());
- loans=client.getClientLoan().stream().map(clientLoan -> new ClienLoandto(clientLoan)).collect(Collectors.toList());
-
+    public Clientdto(Client client) {
+        id = client.getId();
+        firstName = client.getFirstName();
+        lastName = client.getLastName();
+        email = client.getEmail();
+        accounts = client.getAccount().stream().map(account -> new Accountdto(account)).collect(Collectors.toList());
+        loans = client.getClientLoan().stream().map(clientLoan -> new ClienLoandto(clientLoan)).collect(Collectors.toList());
+        cards=client.getCard().stream().map(card -> new Carddto(card)).collect(Collectors.toList());
     }
-
 
 
     public long getId() {
@@ -55,5 +56,9 @@ public class Clientdto {
 
     public List<ClienLoandto> getLoans() {
         return loans;
+    }
+
+    public List<Carddto> getCards() {
+        return cards;
     }
 }

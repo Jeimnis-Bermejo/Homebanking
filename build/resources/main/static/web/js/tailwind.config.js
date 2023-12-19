@@ -2,8 +2,11 @@
 export const theme = {
     extend: {
       colors: {
-        clifford: '#da373d',
+        'greenDark':' #042326',
+        clifford: '#da373d'
+      },
+        
       }
     }
-  };
-  export const plugins = [];
+  
+ 

@@ -16,17 +16,21 @@ public class Client {
     private String firstName;
     private String lastName;
     private String email;
-@OneToMany(mappedBy = "client" , fetch= FetchType.EAGER)
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    private Set<Account> Account = new HashSet<>();
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+
+    private Set<ClientLoan> ClientLoan = new HashSet<>();
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    private Set<Card>Card=new HashSet<>();
 
 
-    private Set<Account> Account=new HashSet<>();
+    public Client() {
 
-@OneToMany(mappedBy = "client" , fetch= FetchType.EAGER)
+    }
 
-    private Set<ClientLoan>ClientLoan=new HashSet<>();
-    public Client (){
-
-}
     public Client(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -64,17 +68,16 @@ public class Client {
 
     public Set<Account> getAccount() {
 
-    return Account;
+        return Account;
     }
 
-    public void addAcount(Account Account){
-    Account.setClient(this);
-
-
-    this.Account.add(Account);
+    public void addAcount(Account Account) {
+        Account.setClient(this);
+        this.Account.add(Account);
     }
 
     public void setAccount(Set<Account> account) {
+
         Account = account;
     }
 
@@ -88,8 +91,21 @@ public class Client {
 
     public void addClientLoan(ClientLoan clientLoan) {
         clientLoan.setClient(this);
-      this.ClientLoan.add(clientLoan) ;
+        this.ClientLoan.add(clientLoan);
 
+    }
+
+    public Set<Card> getCard() {
+        return Card;
+    }
+
+    public void addCard(Card card) {
+        card.setClient(this);
+        this.Card.add(card);
+    }
+
+    public void setCard(Set<Card> card) {
+        Card = card;
     }
 
     @Override
