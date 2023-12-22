@@ -28,7 +28,8 @@
                 <img src="..//image/boton-salir-a-la-aplicacion (1).png" alt="">
             </div>
         </header>
-        <main class=" flex flex-col items-center">
+        <main class=" flex flex-col">
+            <img class="w-full max-h-96 object-cover " src="../image/banner.avif" alt="banner">
 
             <h2 class="text-5xl text-[#042326] font-serif text-center m-5">Welcome {{data.firstName}}!</h2>
 
@@ -36,8 +37,8 @@
             <div class="flex ">
                 <template v-if="accounts.length > 0" v-for="account in accounts">
 
-                    <div class=" gap-10 m-9 text-center font-serif text-white  ">
-                        <section class="bg-[#042326]  h-48 w-80 rounded-lg m-9 p-9 ">
+                    <div class=" gap-10 m-9 text-center font-serif text-[#042326]  ">
+                        <section class="bg-[#dfd9ad]  h-48 w-80 rounded-lg m-9 p-9 ">
                             <h2 class="text-center text-lg items-center">Account number: {{account.number}}</h2>
                             <h2 class="text-center text-lg items-center">Amount:
                                 {{montoformateado(account.balance) }} </h2>
@@ -69,10 +70,25 @@
                 </div>
                 <h3 v-else> You have no active credit, we invite you to apply for credit!!
                 </h3>
+  <div>
+   
+    <h3> Learn more about our products</h3>
+        
+        <h3>Credits</h3>
+          <h3> Finance what you dream, want and need.</h3>
+           <p>It's time to achieve your dreams. Ideal options for those projects or ideas that need financial support.</p>
+            <img src="" alt="">
+            <button>See more </button>
+  </div>
+<h3>Credit Card</h3>
+<p>Pay, buy and earn points using your cards</p>
+<img src="" alt="">
+  <div>
 
+  </div>
 
         </main>
-        <img class="w-full max-h-96 object-cover object-center" src="../image/banner.avif" alt="banner">
+      
         <footer class=" flex h-14 justify-around items-center bg-[#042326] ">
 
             <h3 class="text-lg justify-center text-white">2023- All rights reserved</h3>
