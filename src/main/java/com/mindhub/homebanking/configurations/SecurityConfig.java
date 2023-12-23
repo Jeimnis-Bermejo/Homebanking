@@ -1,3 +1,4 @@
+
 package com.mindhub.homebanking.configurations;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,8 +20,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http)throws Exception{
 http.authorizeHttpRequests(auth ->
-        auth.requestMatchers("web/assets/**", "index.html").permitAll()
-                .requestMatchers("web/*","api/clients/current").hasAnyAuthority("CLIENT","ADMIN")
+        auth.requestMatchers("/web/image/*", "/web/pages/index.html", "/web/js/index.js","/web/js/tailwind.config.js").permitAll()
+
+                .requestMatchers("/web/**","/api/clients/current").hasAnyAuthority("CLIENT","ADMIN")
                 .requestMatchers("/h2-console/**").hasAnyAuthority("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/api/clients").permitAll()
                 .anyRequest().denyAll());
@@ -65,3 +67,4 @@ return http.build();
 
 
 }
+

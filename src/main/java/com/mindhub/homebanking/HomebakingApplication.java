@@ -30,11 +30,12 @@ public class HomebakingApplication {
 
         return args -> {
             Client client1 = new Client("Melba", "Morel", "melba@mindhub.com", passwordEncoder.encode("987654")) ;
-            Client client2 = new Client("Carlos Mario", "Diaz", "CarlosMario89@admin.com", passwordEncoder.encode("123987"));
-
+            Client client2 = new Client("Carlos Mario", "Diaz", "carlosmario89@admin.com", passwordEncoder.encode("123987"));
+            Client admin1= new Client("Jeimnis","Bermejo","jeimnis@gmail.com", passwordEncoder.encode("alice123"));
 
             clientRepository.save(client1);
             clientRepository.save(client2);
+            clientRepository.save(admin1);
             System.out.println(client1);
             System.out.println(client2);
 

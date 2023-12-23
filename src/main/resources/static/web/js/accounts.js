@@ -14,12 +14,14 @@ created(){
 },
 methods:{
     loadData(){
-        axios.get("/api/clients/1")
+        axios.get("/api/clients/current")
         .then (response=>{
             this.data=response.data
              this.accounts=response.data.accounts.sort((a,b)=>a-b)
              this.loans=response.data.loans
             console.log(this.data)
+            console.log(this.accounts)
+            console.log(this.transactions)
             
         } )
            

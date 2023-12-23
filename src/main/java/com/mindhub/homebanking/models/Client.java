@@ -18,6 +18,8 @@ public class Client {
     private String email;
 
     private String password;
+
+    private RolType rol= RolType.CLIENT;
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
     private Set<Account> Account = new HashSet<>();
 
@@ -75,6 +77,14 @@ public class Client {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public RolType getRol() {
+        return rol;
+    }
+
+    public void setRol(RolType rol) {
+        this.rol = rol;
     }
 
     public Set<Account> getAccount() {
