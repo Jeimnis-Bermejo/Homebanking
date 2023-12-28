@@ -100,9 +100,9 @@ public class HomebakingApplication {
             clientLoanRepository.save(client3loan);
             clientLoanRepository.save(client4loan);
 
-            Card cardMelba1=new Card( " Melba Morel",CardType.DEBIT,ColorType.GOLD,"1234 3545 7894 4564", "456",LocalDate.of(2028,12,18),LocalDate.now());
-            Card cardMelba2=new Card("Melba Morel",CardType.CREDIT,ColorType.TITANIUM,"9874 2345 7863 4578", "854",LocalDate.of(2028,12,18),LocalDate.now());
-            Card cardCarlos1=new Card("Carlos Diaz",CardType.CREDIT,ColorType.SILVER,"4524 5441 6414 4358", "784",LocalDate.of(2028,12,18),LocalDate.now());
+            Card cardMelba1=new Card( " Melba Morel",CardType.DEBIT,ColorType.GOLD,"1234 3545 7894 4564", 456,LocalDate.of(2028,12,18),LocalDate.now());
+            Card cardMelba2=new Card("Melba Morel",CardType.CREDIT,ColorType.TITANIUM,"9874 2345 7863 4578", 854,LocalDate.of(2028,12,18),LocalDate.now());
+            Card cardCarlos1=new Card("Carlos Diaz",CardType.CREDIT,ColorType.SILVER,"4524 5441 6414 4358", 784,LocalDate.of(2028,12,18),LocalDate.now());
 
             client1.addCard(cardMelba1);
             client1.addCard(cardMelba2);

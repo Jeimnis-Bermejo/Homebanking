@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accounts</title>
     <link rel="stylesheet" href="../style/style.css">
-    <link rel="shortcut icon" href="../image/Friend Bank.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../image/Logo.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -15,7 +15,7 @@
 
         <header class="bg-[#042326] flex justify-around h-36">
             <div class="flex flex-col">
-                <img class="h-28 w-28 rounded-full items-start" src="../image/Friend Bank.png" alt="">
+                <link rel="shortcut icon" href="../image/Logo.png" type="image/x-icon">
                 <h1 class="text-3xl font-serif text-white ">Friend Bank</h1>
 
             </div>
@@ -26,7 +26,7 @@
                 <a class="p-2  text-white text-2xl font-serif" href="#">Transactions</a>
             </nav>
             <div class="flex items-center">
-                <img src="../image/boton-salir-a-la-aplicacion (1).png" alt="">
+                <img @click.prevent="logout()" src="../image/boton-salir-a-la-aplicacion (1).png" alt="">
             </div>
         </header>
         <main class=" flex flex-col">
@@ -39,7 +39,7 @@
                 <template v-if="accounts.length > 0" v-for="account in accounts">
 
                     <div class=" gap-10 m-9 text-center font-serif text-[#042326]  ">
-                        <section class="bg-[#dfd9ad]  h-48 w-80 rounded-lg m-9 p-9 ">
+                        <section class="bg-[#ffa200]  h-48 w-80 rounded-lg m-9 p-9 ">
                             <h2 class="text-center text-lg items-center">Account number: {{account.number}}</h2>
                             <h2 class="text-center text-lg items-center">Amount:
                                 {{montoformateado(account.balance) }} </h2>
@@ -53,20 +53,17 @@
                         </section>
                     </div>
                 </template>
-                <img class="h-96 w-96 object-contain"
-                    src="../image/encantada-complacida-joven-crea-plan-exitoso-banca-sostiene-documentos-papel-mira-positivamente-computadora-portatil-sienta-mesa-cocina.jpg"
-                    alt="imgaccounts">
-                <p>Discover a world of benefits with our bank accounts
-                </p>
+
             </div>
 
             <div>
                 <h3 class="text-5xl mb-4 font-bold font-serif text-center text-bg-[#042326]">Loans </h3>
 
-                <div v-if="loans.length > 0 " class="flex place-items-start  gap-10 m-9 font-serif text-[#042326]  ">
+                <div v-if="loans.length > 0 " class="flex items-center  gap-10 m-9 font-serif text-[#042326]  ">
+                    <img class="object-contain h-80 w-80 rounded-2xl" src="../image/3519282.jpg" alt="">
                     <template v-for="loan in loans">
 
-                        <section class="bg-[#dfd9ad]  h-48 w-80 rounded-lg m-9 p-9 ">
+                        <section class="bg-[#ffa200]   h-48 w-80 rounded-lg m-9 p-9 ">
                             <h2 class="text-center text-lg items-center mb-3">Name: {{loan.name}}</h2>
                             <h2 class="text-center text-lg items-center mb-3">Amount:
                                 {{montoformateado(loan.amount) }} </h2>
@@ -76,32 +73,37 @@
                         </section>
                     </template>
 
-                    <img class="h-60 w-60 object-contain"
-                        src="../image/clave-exito-agente-viviendas-empoderando-nuevos-propietarios-e-inquilinos-prestamos-aprobados-banco-pr.jpg"
-                        alt="">
                 </div>
                 <h3 v-else> You have no active credit, we invite you to apply for credit!!
                 </h3>
-                <div class="flex">
-                    <h3> Learn more about our products</h3>
-                    <div>
-                        <h3>Credits</h3>
-                        <h3> Finance what you dream, want and need.</h3>
-                        <p>It's time to achieve your dreams. Ideal options for 
-                            those projects or ideas that need
-                            financial
-                            support.</p>
-                        <img class="h-80 w-80 object-contain"
-                            src="../image/joven-pareja-feliz-haciendo-acuerdo-su-asesor-financiero-casa-hombres-dan-mano.jpg"
-                            alt="credit">
+                <div class="flex flex-col items-center">
+                    <h3 class="text-6xl mb-9"> Learn more about our products</h3>
+                    <div class=" flex gap-16 text-center">
+                        <div class="flex flex-col rounded-xl items-center " >
+                            <h3 class="text-3xl text-[#ffa200] font-bold">Credits</h3>
+                            <h3 class="text-center"> Finance what you dream, want and need.</h3>
+                            <p class="w-80"> Ideal options for those projects or ideas that need
+                                financial
+                                support.</p>
+                            <img class="h-72 w-80 object-contain" src="../image/compra de casa.jpg" alt="credit">
+                            <button class="  p-2 rounded-lg bg-green-600 font-bold text-white w-44 hover:bg-green-200 hover:text-[#042326]" >See more!</button>
 
-                    </div>
-                    <div>
-                        <h3>Credit Card</h3>
-                        <p>Pay, buy and earn points using your cards</p>
-                        <img class="object-contain h-80 w-80" src="../image/joven-disfruta-compras-tarjetas-credito.jpg"
-                            alt="buy">
+                        </div>
+                        <div class="flex flex-col rounded-xl items-center ">
+                        <h2 class="text-3xl font-bold text-[#ffa200]">Bank Account</h2>
+                        <h3>Your bank account is the birth of your financial independence</h3>
+                        <h3>create your bank account with a single click! </h3>
+                        <img class="object-contain h-72 w-80"  src="../image/salary01.jpg" alt="">
+                        <button class="  p-2 rounded-lg bg-green-600 font-bold text-white w-44 hover:bg-green-200 hover:text-[#042326]" @click="creationAccount">Create Account</button>
 
+                        </div>
+                        <div class="flex flex-col rounded-xl items-center ">
+                            <h3 class="text-3xl font-bold text-[#ffa200]">Credit Card</h3>
+                            <p>Pay, buy and earn points using your cards</p>
+                            <img class="object-contain mt-2 h-80 w-80" src="../image/20547625_6271225.jpg" alt="buy">
+                            <button class="  p-2 rounded-lg bg-green-600 font-bold text-white w-44 hover:bg-green-200 hover:text-[#042326]" >See more!</button>
+
+                        </div>
                     </div>
                 </div>
         </main>

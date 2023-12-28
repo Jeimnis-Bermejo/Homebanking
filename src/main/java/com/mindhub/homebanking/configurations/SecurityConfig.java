@@ -21,10 +21,11 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http)throws Exception{
 http.authorizeHttpRequests(auth ->
         auth.requestMatchers("/web/image/*", "/web/pages/index.html", "/web/js/index.js","/web/js/tailwind.config.js").permitAll()
-
-                .requestMatchers("/web/**","/api/clients/current").hasAnyAuthority("CLIENT","ADMIN")
-                .requestMatchers("/h2-console/**").hasAnyAuthority("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/api/clients").permitAll()
+                .requestMatchers("/web/**","/api/clients/current").hasAnyAuthority("CLIENT","ADMIN")
+                .requestMatchers(HttpMethod.POST,"/api/clients/current/accounts","/api/clients/current/cards").hasAnyAuthority("CLIENT")
+                .requestMatchers("/h2-console/**").hasAnyAuthority("ADMIN")
+
                 .anyRequest().denyAll());
 
 http.csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable());
@@ -34,7 +35,7 @@ http.formLogin(formLogin ->
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .loginProcessingUrl("/api/login")
-                .failureHandler((request, response, exception) -> response.sendError(403))
+                .failureHandler((request, response, exception) -> response.sendError(401))
                         .successHandler((request, response, authentication) ->clearAuthenticationAttributes(request))
                 .permitAll());
 http.logout(logout->
@@ -44,7 +45,7 @@ http.logout(logout->
 
 http.exceptionHandling(exceptionHandlingConfigurer ->
         exceptionHandlingConfigurer.authenticationEntryPoint((request, response, authException) ->
-                response.sendError(401)));
+                response.sendError(403)));
 
 
         http.rememberMe(Customizer.withDefaults());
