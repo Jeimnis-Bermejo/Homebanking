@@ -16,7 +16,7 @@ created(){
 },
 methods:{
     loadData(){
-        axios.get("/clients")
+        axios.get("/api/clients/current")
         .then (response=>{
             this.data=response.data._embedded.clients
             console.log(this.data)
