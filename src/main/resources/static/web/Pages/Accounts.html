@@ -21,7 +21,8 @@
                 <a class="p-2 hover:underline text-[#311C7D] text-2xl font-serif " href="./Accounts.html">Accounts</a>
                 <a class="p-2 hover:underline text-[#311C7D] text-2xl font-serif " href="./cards.html">Cards</a>
                 <a class="p-2 hover:underline text-[#311C7D]  text-2xl font-serif" href="#">Loans</a>
-                <a class="p-2 hover:underline text-[#311C7D]  text-2xl font-serif" href="./transfer.html">Transactions</a>
+                <a class="p-2 hover:underline text-[#311C7D]  text-2xl font-serif"
+                    href="./transfer.html">Transactions</a>
             </nav>
             <div class="flex items-center">
                 <img @click="logout()" src="../image/boton-salir-a-la-aplicacion.png" alt="">
@@ -70,7 +71,7 @@
 
                 <h3 class="text-5xl mb-4 font-bold font-serif text-center text-white">Loans </h3>
                 <div>
-
+                    <a class="p-2 rounded-lg bg-green-600 font-bold text-white w-44 hover:bg-green-200 hover:text-[#042326]" href="./loan-application.html">Apply for a loan</a>
                     <div v-if="loans.length > 0 "
                         class="flex items-center flex-col  gap-10 m-9 font-serif text-[#042326]  ">
 
@@ -95,7 +96,7 @@
                     </div>
                     <h3 v-else> You have no active credit, we invite you to apply for credit!!
                 </div>
-                
+
                 </h3>
                 <div class="flex flex-col ">
                     <h3 class="text-3xl mb-9 text-center  text-white">¡Learn more about our products!</h3>
@@ -111,7 +112,7 @@
                                 class="  p-2 rounded-lg bg-green-600 font-bold text-white w-44 hover:bg-green-200 hover:text-[#042326]">See
                                 more!</button>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

@@ -22,8 +22,8 @@ public class SecurityConfig {
 http.authorizeHttpRequests(auth ->
         auth.requestMatchers("/web/image/*", "/web/pages/index.html", "/web/js/index.js","/web/js/tailwind.config.js").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/clients").permitAll()
-                .requestMatchers("/web/**","/api/clients/current", "/api/clients/current/accounts").hasAnyAuthority("CLIENT","ADMIN")
-                .requestMatchers(HttpMethod.POST,"/api/clients/current/accounts","/api/clients/current/cards", "/api/transactions").hasAnyAuthority("CLIENT")
+                .requestMatchers("/web/**","/api/clients/current", "/api/clients/current/accounts","/api/loans").hasAnyAuthority("CLIENT","ADMIN")
+                .requestMatchers(HttpMethod.POST,"/api/clients/current/accounts","/api/clients/current/cards", "/api/transactions","api/loans").hasAnyAuthority("CLIENT")
                 .requestMatchers("/h2-console/**").hasAnyAuthority("ADMIN")
 
                 .anyRequest().denyAll());
